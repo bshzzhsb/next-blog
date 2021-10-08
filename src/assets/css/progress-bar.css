@@ -1,0 +1,24 @@
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  position: fixed;
+  z-index: 1001;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, var(--color-m6) 0%, var(--color-y6) 45%, var(--color-g6) 100%);
+}
+
+#nprogress .peg {
+  position: absolute;
+  right: 0px;
+  display: block;
+  width: 100px;
+  height: 100%;
+  box-shadow: 0 0 10px var(--color-y6), 0 0 5px var(--color-g6);
+  opacity: 1;
+  transform: rotate(3deg) translate(0px, -4px);
+}
