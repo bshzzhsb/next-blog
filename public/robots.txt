@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://blog.bshz.xyz/sitemap.xml
+Host: https://blog.bshz.xyz
