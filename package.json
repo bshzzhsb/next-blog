@@ -1,0 +1,40 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "blog build with next",
+  "author": "bshz",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc"
+  },
+  "devDependencies": {
+    "@types/eslint": "^7",
+    "@types/mdx-js__react": "^1",
+    "@types/prettier": "^2",
+    "@types/react": "^17",
+    "@types/react-dom": "^17",
+    "@types/styled-components": "^5",
+    "babel-plugin-styled-components": "^1.13.2",
+    "esbuild": "^0.12.25",
+    "eslint": "^7.32.0",
+    "eslint-config-next": "^11.1.2",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "^2.4.1",
+    "typescript": "^4.4.2"
+  },
+  "dependencies": {
+    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
+    "algoliasearch": "^4.10.5",
+    "gray-matter": "^4.0.3",
+    "next": "^11.1.2",
+    "prism-react-renderer": "^1.2.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.1"
+  }
+}

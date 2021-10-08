@@ -1,0 +1,26 @@
+/.yarn/*
+!/.yarn/releases
+!/.yarn/plugins
+!/.yarn/sdks
+/.pnp.*
+
+# dist
+/dist
+
+# build
+/build
+
+# node_modules
+/node_modules
+
+# next
+/.next
+
+# env
+/.env.local
+
+# macOS
+.DS_Store
+
+# sitemap.xml
+/public/sitemap.xml
