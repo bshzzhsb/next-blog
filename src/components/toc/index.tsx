@@ -90,7 +90,7 @@ const TOC: React.FC<TOCProps> = React.memo(({ headings }) => {
     return () => {
       document.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [headings]);
 
   return (
     <div>

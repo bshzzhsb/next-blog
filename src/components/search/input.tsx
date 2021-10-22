@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { Hit } from '@algolia/client-search';
 
@@ -43,18 +43,19 @@ const Input = ({ focus, setQuery, onFocus, setHits }: InputProps) => {
   const [composition, setComposition] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const debouncedSearch = useCallback(
-    debounce(async (query: string) => {
-      try {
-        const hits = await search(query);
-        setQuery(query);
-        setHits(hits);
-      } catch (e) {
-        setHits([]);
-        setQuery('');
-      }
-    }, 200),
-    [],
+  const debouncedSearch = useMemo(
+    () =>
+      debounce(async (query: string) => {
+        try {
+          const hits = await search(query);
+          setQuery(query);
+          setHits(hits);
+        } catch (e) {
+          setHits([]);
+          setQuery('');
+        }
+      }, 200),
+    [setQuery, setHits],
   );
 
   useEffect(() => {
