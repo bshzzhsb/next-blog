@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 
 import ProgressBar from '@/components/progress-bar';
 import ga from '@/lib/ga';
+import { logo } from '@/constants/logo';
 import '@/assets/css/global.css';
 import '@/assets/css/variable.css';
 
@@ -12,6 +13,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
     require('@/assets/icon/iconfont');
+    console.log(logo);
   }, []);
 
   useEffect(() => {

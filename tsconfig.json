@@ -22,7 +22,8 @@
       "@/assets/*": ["assets/*"],
       "@/settings/*": ["settings/*"],
       "@/mdx-components/*": ["mdx-components/*"],
-      "@/utils/*": ["utils/*"]
+      "@/utils/*": ["utils/*"],
+      "@/constants/*": ["constants/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/scripts/generate-sitemap.mjs"],
