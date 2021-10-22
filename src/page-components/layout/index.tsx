@@ -24,6 +24,20 @@ const Layout: FC<LayoutProps> = ({ title, children }) => {
     <>
       <Head>
         <title>{`${title} - 博思何在`}</title>
+        {/* Google Analytics */}
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+              page_path: window.location.pathname,
+            });
+          `,
+          }}
+        />
       </Head>
       <Header showSidebar={showSidebar} setShowSidebar={(showSidebar: boolean) => setShowSidebar(showSidebar)} />
       <Hamburger showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
