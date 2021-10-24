@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Link from '@/components/link';
-import { categories } from '@/settings/category';
+import { navigation } from '@/settings/category';
 
 interface SidebarProps {
   showSidebar: boolean;
@@ -49,7 +49,7 @@ const Sidebar: React.FC<SidebarProps> = ({ showSidebar, setShowSidebar }) => {
       <SidebarWrapper showSidebar={showSidebar}>
         <NavListWrapper>
           <NavList>
-            {categories.map((item) => (
+            {navigation.map((item) => (
               <NavItem key={item.title} onClick={() => setShowSidebar(false)}>
                 <NavItemLink href={item.slug}>{item.title}</NavItemLink>
               </NavItem>
