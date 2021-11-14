@@ -12,6 +12,7 @@ import Code from '@/mdx-components/code';
 import TOC from '@/components/toc';
 import Quote from 'posts/essay/others/quote';
 import Thought from 'posts/essay/bshz/thought';
+import Playground from '@/mdx-components/playground';
 
 export interface PostProps {
   slug: string;
@@ -124,10 +125,12 @@ const components = {
   inlineCode: Code,
   Quote,
   Thought,
+  Playground: Playground,
 };
 
 const getHeadingsFromMdx = (children: any[]) => {
   const headingTypes = ['h1', 'h2', 'h3'];
+  if (!Array.isArray(children)) children = [children];
   return children
     .filter((child) => headingTypes.includes(child.props.originalType))
     .map((child) => ({

@@ -45,7 +45,9 @@ section,
 summary,
 mark,
 audio,
-video {
+video,
+textarea,
+button {
   margin: 0px;
   padding: 0px;
   border: 0px;
@@ -66,6 +68,18 @@ li {
 
 a {
   text-decoration: none;
+}
+
+input,
+button,
+select,
+textarea {
+  outline: none;
+}
+
+textarea {
+  resize: none;
+  border: none;
 }
 
 html {
