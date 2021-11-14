@@ -21,7 +21,7 @@ const Result: React.FC<ResultProps> = ({ id, code, error, setError }) => {
     return () => {
       window.removeEventListener('message', handleMessage);
     };
-  });
+  }, [id, setError]);
 
   return (
     <>

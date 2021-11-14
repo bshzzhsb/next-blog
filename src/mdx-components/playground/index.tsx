@@ -67,7 +67,27 @@ const PlaygroundContainer = styled.div`
   }
 `;
 
-const Playground: React.FC<PlaygroundProps> = ({ id, html = '', css = '', js = '' }) => {
+const DEFAULT_HTML = `<div class="parent">
+  <div class="child">
+    child element
+  </div>
+</div>
+`;
+const DEFAULT_CSS = `.parent {
+  width: 200px;
+  height: 200px;
+  background-color: lightpink;
+}
+.child {
+  width: 100px;
+  height: 100px;
+  background-color: lightblue;
+}
+`;
+const DEFAULT_JS = `console.log('playground');
+`;
+
+const Playground: React.FC<PlaygroundProps> = ({ id, html = DEFAULT_HTML, css = DEFAULT_CSS, js = DEFAULT_JS }) => {
   const defaultCode = useMemo(
     () => ({
       [PlaygroundTabs.HTML]: formatHTML(html),
@@ -85,19 +105,18 @@ const Playground: React.FC<PlaygroundProps> = ({ id, html = '', css = '', js = '
 
   const handleTextareaChange = useCallback((key: PlaygroundTabs) => {
     return (value: string) => {
-      setLogs([]);
-      setError(null);
       setCodes((preCodes) => ({ ...preCodes, [key]: value }));
     };
   }, []);
 
   useEffect(() => {
+    setLogs([]);
+    setError(null);
     debouncedSetDebouncedCode(codes);
   }, [codes, debouncedSetDebouncedCode]);
 
   const onClickRightButton = useCallback(() => {
     setCodes(defaultCode);
-    setDebouncedCode(defaultCode);
   }, [defaultCode]);
 
   React.useEffect(() => {

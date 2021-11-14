@@ -51,7 +51,7 @@ const Console: React.FC<ConsoleProps> = ({ id, logs, setLogs }) => {
     return () => {
       window.removeEventListener('message', handleMessage);
     };
-  });
+  }, [id, setLogs]);
 
   return (
     <ConsoleContainer>
