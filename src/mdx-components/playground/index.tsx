@@ -25,6 +25,7 @@ interface PlaygroundProps {
   html?: string;
   css?: string;
   js?: string;
+  className?: string;
 }
 
 const PlaygroundContainer = styled.div`
@@ -87,7 +88,13 @@ const DEFAULT_CSS = `.parent {
 const DEFAULT_JS = `console.log('playground');
 `;
 
-const Playground: React.FC<PlaygroundProps> = ({ id, html = DEFAULT_HTML, css = DEFAULT_CSS, js = DEFAULT_JS }) => {
+const Playground: React.FC<PlaygroundProps> = ({
+  id,
+  html = DEFAULT_HTML,
+  css = DEFAULT_CSS,
+  js = DEFAULT_JS,
+  className,
+}) => {
   const defaultCode = useMemo(
     () => ({
       [PlaygroundTabs.HTML]: formatHTML(html),
@@ -137,7 +144,7 @@ const Playground: React.FC<PlaygroundProps> = ({ id, html = DEFAULT_HTML, css = 
   }, [codes]);
 
   return (
-    <PlaygroundContainer>
+    <PlaygroundContainer className={className}>
       <Tabs defaultTab={PlaygroundTabs.HTML} rightButton="reset" onClickRightButton={onClickRightButton}>
         {[PlaygroundTabs.HTML, PlaygroundTabs.CSS, PlaygroundTabs.JS].map((key) => (
           <TabPane key={key}>

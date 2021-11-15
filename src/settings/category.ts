@@ -11,4 +11,8 @@ export const navigation = [
     title: '归档',
     slug: '/posts/archive',
   },
+  {
+    title: 'Ninja',
+    slug: '/ninja',
+  },
 ];

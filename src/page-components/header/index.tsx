@@ -58,7 +58,7 @@ const NavList = styled.ul`
 `;
 
 const NavItem = styled.li`
-  margin: 10px;
+  margin: 0 10px;
 `;
 
 const HeaderRight = styled.div<{ showSidebar: boolean }>`
