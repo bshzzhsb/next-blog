@@ -107,6 +107,7 @@ const Playground: React.FC<PlaygroundProps> = ({
   const [debouncedCode, setDebouncedCode] = useState(codes);
   const [logs, setLogs] = useState<any[]>([]);
   const [error, setError] = useState<null | string | Event>();
+  const [loading, setLoading] = useState(true);
 
   const debouncedSetDebouncedCode = useMemo(() => debounce(setDebouncedCode, 300), []);
 
@@ -114,6 +115,10 @@ const Playground: React.FC<PlaygroundProps> = ({
     return (value: string) => {
       setCodes((preCodes) => ({ ...preCodes, [key]: value }));
     };
+  }, []);
+
+  useEffect(() => {
+    setLoading(false);
   }, []);
 
   useEffect(() => {
@@ -126,7 +131,7 @@ const Playground: React.FC<PlaygroundProps> = ({
     setCodes(defaultCode);
   }, [defaultCode]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.altKey && e.shiftKey && e.code === 'KeyF') {
         e.preventDefault();
@@ -155,7 +160,7 @@ const Playground: React.FC<PlaygroundProps> = ({
       <div style={{ height: '100%', background: '#000' }}></div>
       <Tabs defaultTab={ResultTabs.RESULT}>
         <TabPane key={ResultTabs.RESULT}>
-          <Result id={id} code={constructCode(debouncedCode, id)} error={error} setError={setError} />
+          <Result id={id} code={constructCode(debouncedCode, id)} loading={loading} error={error} setError={setError} />
         </TabPane>
         <TabPane key={ResultTabs.CONSOLE}>
           <Console id={id} logs={logs} setLogs={setLogs} />
